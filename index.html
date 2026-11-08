@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="LTBL Group provides domestic and light commercial electrical services across Melbourne’s northern and western suburbs.">
+<title>LTBL Group | Melbourne Electrical Services</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Brand, typography and shared layout */
+:root{--navy:#1e2955;--ink:#202b50;--slate:#485968;--yellow:#edc346;--paper:#f4f6f4;--line:#dbe2e5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:1rem/1.65 "Inter","Segoe UI",Arial,sans-serif;background:white}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #1682a0;outline-offset:4px}
+h1,h2,h3,p{margin:0 0 1rem}
+h1,h2,h3{line-height:1.08;letter-spacing:-.035em}
+h1{font-size:clamp(2.7rem,6vw,5.6rem);max-width:12ch}
+h2{font-size:clamp(2rem,4.5vw,3.7rem);max-width:18ch}
+h3{font-size:1.27rem}
+.wrap{width:min(1160px, calc(100% - 2.5rem));margin:auto}
+section{padding:clamp(3.5rem,8vw,7rem) 0}
+.dark{background:var(--navy);color:white}
+.soft{background:var(--paper)}
+.kicker{font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800;display:flex;align-items:center;gap:.65rem}
+.kicker::before{content:"";width:1.6rem;height:3px;background:#aa8800}
+.dark .kicker::before{background:var(--yellow)}
+.lead{font-size:1.12rem;max-width:48ch;color:var(--slate)}
+.dark .lead,.dark .muted{color:#bccbd8}
+.button{display:inline-block;text-decoration:none;border:1px solid transparent;border-radius:5px;padding:.7rem 1.1rem;font:inherit;font-weight:800;background:var(--yellow);color:var(--navy);cursor:pointer}
+.button:hover{background:#f6d369}
+.outline{background:transparent;color:white;border-color:#7e91a3}
+.outline:hover{background:#22364a}
+.actions,.navlinks,.chips{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,5rem);align-items:start}
+/* Header and illustrated hero */
+.skip{position:absolute;left:1rem;top:-8rem;background:var(--yellow);padding:.5rem;z-index:2}
+.skip:focus{top:1rem}
+header{border-bottom:1px solid #28384a}
+nav{display:flex;justify-content:space-between;align-items:center;gap:.9rem;padding:1rem 0;flex-wrap:wrap}
+.navlinks a:not(.button){text-decoration:none;font-size:.9rem}
+.navlinks a:hover{text-decoration:underline}
+.logo{font-weight:900;text-decoration:none;letter-spacing:-.04em;font-size:1.28rem;white-space:nowrap}
+.logo span,.accent{color:var(--yellow)}
+.hero{overflow:hidden}
+.hero .split{align-items:center}
+.hero-photo{display:block;width:100%;aspect-ratio:530/410;object-fit:cover;object-position:center 45%;border-radius:12px;border:1px solid #ffffff38;box-shadow:0 20px 45px #10163155}
+.hero .actions{margin-top:1.8rem}
+.strip{border-bottom:1px solid var(--line)}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.6rem;padding:1rem 0;font-weight:750;font-size:.9rem}
+.strip span::before{content:"✓";margin-right:.5rem;color:#635000}
+/* Service cards, trust points and reviews */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:2rem}
+article{border:1px solid var(--line);background:white;border-radius:8px;padding:1.3rem}
+article p{color:var(--slate);margin-bottom:0;font-size:.94rem}
+.icon{display:grid;place-items:center;width:2.6rem;height:2.6rem;background:#f9edc4;color:var(--ink);border-radius:5px;font-size:1.45rem;margin-bottom:1.05rem}
+.checks{padding:0;margin:0;list-style:none}
+.checks li{padding:.85rem 0;border-bottom:1px solid var(--line)}
+.checks li::before{content:"✓";color:#725900;font-weight:900;margin-right:.65rem}
+.chips span{padding:.3rem .7rem;border:1px solid #63768a;border-radius:4px}
+.reviews{grid-template-columns:repeat(3,minmax(0,1fr))}
+blockquote{margin:0 0 1rem}
+.small{font-size:.9rem;color:var(--slate)}
+/* Contact form and footer */
+form{background:white;color:var(--ink);padding:clamp(1rem,3vw,2rem);border-radius:8px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+label{display:block;font-weight:700;min-width:0}
+.full{grid-column:1/-1}
+input,select,textarea{display:block;width:100%;min-width:0;border:1px solid #aab7c1;border-radius:4px;padding:.65rem;margin-top:.25rem;font:inherit;color:inherit;background:white}
+textarea{resize:vertical}
+form .button{margin-top:1rem}
+form .small{margin:.75rem 0 0}
+address{font-style:normal}
+footer{padding:2rem 0;background:#151e40;color:white}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.25rem}
+footer p{margin:.4rem 0}
+footer .small{color:#b6c4d1}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.split,.fields,.reviews{grid-template-columns:1fr}.navlinks{gap:.6rem}.grid:not(.reviews){gap:.65rem}article{padding:.9rem}}
+@media(max-width:390px){.grid:not(.reviews){grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Brand identity and interactive promotion */
+.logo{display:inline-flex;align-items:center}
+.brand-logo{display:block;width:clamp(105px,15vw,132px);height:auto;padding:5px 7px;background:#fff;border-radius:5px}
+
+
+
+.hero{background:radial-gradient(ellipse at 82% 25%,#303d70,var(--navy) 65%)}
+.grid article{box-shadow:0 6px 18px #1e295507;border-radius:12px}
+.reward{background:#e9eef2}
+.game-panel{padding:clamp(1rem,4vw,2rem);background:var(--navy);color:white;border-radius:14px;box-shadow:0 16px 34px #1e295526}
+.reset{background:transparent;color:white;border-color:#71889e}
+.reset:hover{background:#37536b}
+.coupon{margin-top:1rem;border-radius:8px;padding:1rem;background:white;color:var(--ink)}
+.coupon form{padding:0}
+/* Interior lighting inspiration */
+.lighting-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2rem}
+.lighting-grid figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:white}
+.lighting-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.lighting-grid figcaption{padding:1.25rem}
+.lighting-grid figcaption p{margin:0;color:var(--slate)}
+@media(max-width:640px){.lighting-grid{grid-template-columns:1fr}}
+/* Customer pathways and quote process */
+.pathways{padding:clamp(2.5rem,5vw,4rem) 0}
+.pathways .split{gap:1rem}
+.path-card{padding:clamp(1.25rem,3vw,2rem);border-top:4px solid var(--yellow);background:var(--paper)}
+.path-card h3{font-size:1.65rem}
+.path-card p{margin-bottom:1rem}
+.path-card a{font-weight:800;text-underline-offset:.25em}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;list-style:none;padding:0;margin:2rem 0}
+.steps li{padding:1.25rem;border:1px solid var(--line);border-radius:8px;background:white}
+.step-num{display:inline-block;margin-bottom:1rem;padding:.2rem .5rem;background:var(--yellow);font-weight:800}
+.steps p{margin:0;color:var(--slate)}
+@media(max-width:640px){.steps{grid-template-columns:1fr}}
+/* White surfaces and consistent business typography */
+:root{--paper:#fff}
+h1,h2,h3{letter-spacing:-.045em;font-weight:800}
+.dark,footer{background:#fff;color:var(--ink)}
+.dark .lead,.dark .muted,footer .small{color:var(--slate)}
+header,footer{border-color:var(--line)}
+footer{border-top:1px solid var(--line)}
+.hero,.reward{background:#fff}
+.hero .accent{color:#725300}
+.dark .outline{color:var(--navy);border-color:var(--navy)}
+.dark .outline:hover{background:#f1f3f8}
+section[id]{border-top:1px solid var(--line)}
+#contact form{border:1px solid var(--line)}
+.chips span{border-color:var(--line)}
+.business-links{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem}
+.tone-level{margin:1.25rem 0 .5rem}
+.tone-level output{float:right;color:var(--yellow)}
+.tone-level input{accent-color:var(--yellow);min-height:2rem;padding:0}
+#level-note{font-size:.85rem;color:#d0d9e8}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- Main navigation -->
+<header class="dark"><nav class="wrap" aria-label="Main navigation">
+<a class="logo" href="#" aria-label="LTBL Group home"><img class="brand-logo" src="ltbl-group-logo.webp" width="679" height="312" alt="LTBL Group"></a>
+<div class="navlinks"><a href="#services">Services</a><a href="#lighting">Lighting</a><a href="#how-it-works">How it works</a><a href="#about">About</a><a href="#areas">Areas</a><a href="#reviews">Reviews</a><a href="#game">Play &amp; save</a><a class="button" href="#contact">Request a quote</a></div>
+</nav></header>
+<main id="main">
+<!-- Hero and service highlights -->
+<section class="hero dark"><div class="wrap split"><div>
+<p class="kicker">Melbourne’s north &amp; west</p>
+<h1>Electrical work you can <span class="accent">rely on.</span></h1>
+<p class="lead">Electrical installations, repairs and maintenance for homes, rental properties and small businesses across Melbourne’s northern and western suburbs.</p>
+<div class="actions"><a class="button" href="#contact">Request a quote <span aria-hidden="true">↗</span></a><a class="button outline" href="mailto:ltblgroup.services@gmail.com">Email us</a></div>
+</div>
+<img class="hero-photo" src="lighting-home.webp" alt="Warm pendant lighting above a timber island in a modern home kitchen" fetchpriority="high"></div></section>
+<div class="strip"><div class="wrap"><span>Residential &amp; light commercial</span><span>Safety-focused work</span><span>Free, no-obligation quotes</span></div></div>
+<!-- Choose a service pathway -->
+<section class="pathways" aria-labelledby="pathways-heading"><div class="wrap">
+<p class="kicker">Who we help</p><h2 id="pathways-heading">Electrical help for your property</h2>
+<div class="split">
+<article class="path-card"><h3>Homeowners &amp; landlords</h3><p>From new power points and kitchen lighting to rental property maintenance and electrical repairs.</p><a href="#contact" data-property="Home or rental">Request a residential quote <span aria-hidden="true">↗</span></a></article>
+<article class="path-card"><h3>Small businesses</h3><p>Lighting, power and fault finding for shops, cafés and offices. Tell us your trading hours so we can discuss timing.</p><a href="#contact" data-property="Small business">Request a small business quote <span aria-hidden="true">↗</span></a></article>
+</div></div></section>
+<!-- Services and company information -->
+<section id="services" class="soft"><div class="wrap"><p class="kicker">01 / What we do</p><h2>Electrical services for your property</h2><p class="lead">From a faulty power point to a full rewire, tell us what you need and we’ll help you work out the next step.</p><div class="grid"><article><span class="icon" aria-hidden="true">↯</span><h3>Electrical installations & repairs</h3><p>New power points, switches and dedicated circuits for homes and small businesses. We also repair damaged fittings and resolve everyday electrical issues.</p></article>
+<article><span class="icon" aria-hidden="true">☼</span><h3>Indoor & outdoor lighting</h3><p>Upgrade to LEDs, add task lighting or brighten paths and entrances. We can help you choose fittings that suit the space and how you use it.</p></article>
+<article><span class="icon" aria-hidden="true">✓</span><h3>Safety checks & documentation</h3><p>Arrange electrical safety inspections for homes, rental properties or small premises. Ask what certification applies to the work you need.</p></article>
+<article><span class="icon" aria-hidden="true">▤</span><h3>Switchboard upgrades</h3><p>Replace ageing fuse boards and discuss safety switch protection. We’ll explain the scope and likely downtime before work starts.</p></article>
+<article><span class="icon" aria-hidden="true">⌁</span><h3>Fault finding & urgent call-outs</h3><p>Get help with tripping circuits, failed outlets and unexpected power issues. Call to check current availability for urgent jobs.</p></article>
+<article><span class="icon" aria-hidden="true">▣</span><h3>Appliance installation</h3><p>Arrange electrical connections for ovens, cooktops and rangehoods. We check the existing supply against the appliance requirements.</p></article>
+<article><span class="icon" aria-hidden="true">⤨</span><h3>Full & partial rewiring</h3><p>Update wiring during renovations or replace deteriorating wiring in older properties. We’ll discuss access and plan the work around your space.</p></article>
+<article><span class="icon" aria-hidden="true">◉</span><h3>Fans, alarms & maintenance</h3><p>Install or replace ceiling fans, exhaust fans and smoke alarms. Ask about routine electrical maintenance for rentals and small business premises.</p></article></div></div></section>
+<!-- Interior lighting inspiration -->
+<section id="lighting"><div class="wrap">
+<p class="kicker">Lighting inspiration</p>
+<h2>Interior lighting for homes and small businesses</h2>
+<p class="lead">See how pendants, downlights and track lighting can bring warmth and focus to different spaces.</p>
+<div class="lighting-grid">
+<figure><img src="lighting-home.webp" alt="Warm pendant lights above a timber island in a home kitchen" loading="lazy"><figcaption><h3>Home lighting</h3><p>Pendants define the kitchen island while recessed downlights provide even light for everyday tasks.</p></figcaption></figure>
+<figure><img src="lighting-business.webp" alt="Track lighting over a café counter with pendant lights above timber seating" loading="lazy"><figcaption><h3>Small business lighting</h3><p>Track lighting highlights the service counter, while softer pendants make the seating area feel welcoming.</p></figcaption></figure>
+</div><p class="small" style="margin-top:1rem">Illustrative lighting concepts.</p>
+<a class="button" href="#contact">Request a lighting quote</a>
+</div></section>
+<section id="about" class="soft"><div class="wrap split"><div><p class="kicker">02 / About LTBL Group</p><h2>Local electrical help, with clear communication</h2><p class="lead">LTBL Group helps homeowners, landlords and small businesses with electrical installations, repairs and ongoing maintenance. We explain the work in plain English and agree on the scope before getting started.</p></div><div><h3>Why choose LTBL Group?</h3><ul class="checks"><li><strong>Clear quotes.</strong> Know what’s included before you book.</li><li><strong>Respect for your property.</strong> We aim to arrive on time and leave the work area tidy.</li><li><strong>Safety first.</strong> Ask us about licensing, insurance and the paperwork relevant to your job.</li><li><strong>Local support.</strong> Ask about availability for urgent call-outs across Melbourne’s north and west.</li></ul></div></div></section>
+<!-- Coverage and clearly labelled sample testimonials -->
+<section id="areas" class="dark"><div class="wrap split"><div><p class="kicker">03 / Service areas</p><h2>Across Melbourne’s north and west</h2><p class="lead">Send us your suburb and we’ll confirm coverage and availability for your job.</p></div><div><h3>Northern suburbs</h3><p class="chips"><span>Preston</span><span>Reservoir</span><span>Broadmeadows</span><span>Craigieburn</span></p><h3>Western suburbs</h3><p class="chips"><span>Footscray</span><span>Sunshine</span><span>Werribee</span><span>Point Cook</span></p></div></div></section>
+<section id="reviews"><div class="wrap split">
+<div><p class="kicker">Customer feedback</p><h2>Google reviews</h2><p class="lead">We’ll link our Google Business Profile here once the listing is confirmed.</p></div>
+<div><p class="kicker">Business information</p><h3>Electrical registration &amp; safety</h3>
+<p>Before booking electrical work, ask for the contractor’s Victorian Registered Electrical Contractor (REC) number and confirmation of public liability insurance. A Certificate of Electrical Safety is required for electrical installation work in Victoria.</p>
+<div class="business-links"><a href="https://www.energysafe.vic.gov.au/community-safety/working-tradespeople/electrical-workers">Check electrical registration</a><a href="https://www.energysafe.vic.gov.au/certificates-electrical-safety/certificates-electrical-safety-consumers">About electrical safety certificates</a></div>
+</div></div></section>
+<!-- Optional visitor game and coupon -->
+<section id="game" class="reward"><div class="wrap split">
+<div><p class="kicker">Play &amp; save</p><h2>Match the sound</h2><p class="lead">Listen to a reference tone, then match its volume to unlock 10% off your next LTBL Group service.</p></div>
+<div class="game-panel">
+<p id="game-help">Play both tones. Focus the level slider and scroll to adjust it, or use the arrow keys or touch. Then play your tone again and check your match.</p>
+<div class="actions"><button type="button" class="button" id="reference">Play reference</button><button type="button" class="button reset" id="preview-tone">Play my tone</button></div>
+<label class="tone-level">Your level <output id="level-value" for="level">−30 dB</output>
+<input id="level" type="range" min="-48" max="-18" step="1" value="-30" aria-describedby="game-help level-note"></label>
+<p id="level-note">Relative digital level. The volume you hear depends on your device.</p>
+<p id="game-status" role="status">Ready when you are.</p>
+<div class="actions"><button type="button" class="button" id="check-level">Check match</button><button type="button" class="button reset" id="reset-game">New round</button></div>
+<div class="coupon" id="coupon" hidden>
+<h3>You unlocked 10% off</h3><p>Quote <strong>LTBL10</strong> when requesting a quote.</p>
+<form id="coupon-email">
+<label>Send the coupon to<input name="recipient" type="email" placeholder="name@example.com" required></label>
+<button class="button" type="submit">Open coupon email</button>
+<p class="small">Opens a prefilled message in your email app. Press Send there to share the coupon.</p>
+</form>
+</div></div></div></section>
+<!-- What to expect when requesting a quote -->
+<section id="how-it-works" class="soft"><div class="wrap">
+<p class="kicker">From enquiry to booking</p><h2>How to get a quote</h2>
+<ol class="steps">
+<li><span class="step-num" aria-hidden="true">01</span><h3>Tell us about the job</h3><p>Include your suburb, what you need done and any timing constraints.</p></li>
+<li><span class="step-num" aria-hidden="true">02</span><h3>Talk through the details</h3><p>We’ll clarify the scope and let you know if a site visit is needed before quoting.</p></li>
+<li><span class="step-num" aria-hidden="true">03</span><h3>Review your quote</h3><p>Check what’s included and arrange a time if you’d like to go ahead.</p></li>
+</ol><a class="button" href="#contact">Request a quote</a>
+</div></section>
+<!-- Quote form and contact details -->
+<section id="contact" class="dark"><div class="wrap split"><div><p class="kicker">05 / Get in touch</p><h2>Request a free quote</h2><p class="lead">Get in touch for a free, no-obligation quote. Tell us what you need and where the job is located.</p><address><p><strong>Email</strong><br><a href="mailto:ltblgroup.services@gmail.com">ltblgroup.services@gmail.com</a></p></address></div>
+<form id="quote-form" action="https://formsubmit.co/ltblgroup.services@gmail.com" method="post">
+<input type="hidden" name="_subject" value="New LTBL Group quote enquiry">
+<input type="hidden" name="_template" value="table"><div class="fields">
+<label>Name<input name="name" autocomplete="name" required></label>
+<label>Email<input name="email" type="email" autocomplete="email" required></label>
+<label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+<label class="full">Property type<select name="property"><option value="">Select a property type</option><option>Home or rental</option><option>Small business</option><option>Other</option></select></label>
+<label class="full">Service needed<select name="service" required><option value="">Select a service</option><option>Electrical installations &amp; repairs</option><option>Indoor &amp; outdoor lighting</option><option>Safety checks &amp; documentation</option><option>Switchboard upgrades</option><option>Fault finding &amp; urgent call-outs</option><option>Appliance installation</option><option>Full &amp; partial rewiring</option><option>Fans, alarms &amp; maintenance</option><option>Other / unsure</option></select></label>
+<label class="full">Message<textarea name="message" rows="4" placeholder="Include your suburb and a short description of the job." required></textarea></label>
+</div><button class="button" type="submit">Send quote enquiry</button><p class="small">Your details will be sent to LTBL Group via FormSubmit so we can respond to your enquiry.</p></form></div></section>
+</main>
+<!-- Footer -->
+<footer><div class="wrap"><div><a class="logo" href="#"><img class="brand-logo" src="ltbl-group-logo.webp" width="679" height="312" alt="LTBL Group"></a><p>Electrical services for homes and small businesses.</p><p class="small"><a href="mailto:ltblgroup.services@gmail.com">ltblgroup.services@gmail.com</a></p></div>
+<div><div class="navlinks"><a href="#services">Services</a><a href="#about">About</a><a href="#areas">Areas</a><a href="#contact">Contact</a></div><p class="small">Social links coming soon</p><p class="small">© 2026 LTBL Group</p></div></div></footer>
+<script>
+/* Compare relative digital levels without measuring the listener’s device. */
+const level = document.querySelector('#level');
+const levelValue = document.querySelector('#level-value');
+const gameStatus = document.querySelector('#game-status');
+const coupon = document.querySelector('#coupon');
+let audioContext;
+let playing;
+let targetLevel;
+let heardReference = false;
+let round = 0;
+function updateLevel() {
+  levelValue.value = '−' + Math.abs(Number(level.value)) + ' dB';
+}
+function resetGame() {
+  round++;
+  targetLevel = -44 + Math.floor(Math.random() * 23);
+  heardReference = false;
+  level.value = -30;
+  updateLevel();
+  coupon.hidden = true;
+  gameStatus.textContent = 'New round. Play the reference to begin.';
+}
+async function playTone(decibels) {
+  audioContext ??= new AudioContext();
+  await audioContext.resume();
+  if (playing) playing.stop();
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+  const now = audioContext.currentTime;
+  const amplitude = 10 ** (decibels / 20);
+  oscillator.frequency.value = 440;
+  gain.gain.setValueAtTime(0, now);
+  gain.gain.linearRampToValueAtTime(amplitude, now + 0.04);
+  gain.gain.setValueAtTime(amplitude, now + 0.55);
+  gain.gain.linearRampToValueAtTime(0, now + 0.65);
+  oscillator.connect(gain).connect(audioContext.destination);
+  playing = oscillator;
+  oscillator.onended = () => {
+    oscillator.disconnect();
+    gain.disconnect();
+    if (playing === oscillator) playing = undefined;
+  };
+  oscillator.start(now);
+  oscillator.stop(now + 0.65);
+}
+async function preview(reference) {
+  const currentRound = round;
+  try {
+    await playTone(reference ? targetLevel : Number(level.value));
+    if (reference && round === currentRound) heardReference = true;
+  } catch {
+    gameStatus.textContent = 'Audio could not play. Check your browser’s sound settings and try again.';
+  }
+}
+document.querySelector('#reference').addEventListener('click', () => preview(true));
+document.querySelector('#preview-tone').addEventListener('click', () => preview(false));
+level.addEventListener('input', updateLevel);
+level.addEventListener('wheel', event => {
+  if (document.activeElement !== level || !event.deltaY) return;
+  event.preventDefault();
+  if (event.deltaY < 0) level.stepUp();
+  else level.stepDown();
+  updateLevel();
+}, {passive: false});
+document.querySelector('#check-level').addEventListener('click', () => {
+  if (!heardReference) {
+    gameStatus.textContent = 'Play the reference tone first.';
+    return;
+  }
+  if (Math.abs(Number(level.value) - targetLevel) > 2) {
+    gameStatus.textContent = 'Try again. Compare both tones and adjust your level.';
+    return;
+  }
+  coupon.hidden = false;
+  gameStatus.textContent = 'Match! You were within 2 dB. Your coupon is ready.';
+  document.querySelector('#coupon-email input').focus();
+});
+document.querySelector('#reset-game').addEventListener('click', resetGame);
+resetGame();
+document.querySelector('#coupon-email').addEventListener('submit', event => {
+  event.preventDefault();
+  const address = new FormData(event.currentTarget).get('recipient').trim();
+  const subject = 'Your LTBL Group 10% coupon';
+  const body = 'You unlocked 10% off your next LTBL Group service. Mention code LTBL10 when requesting a quote.\n\nhttps://ltbl-group.spicycashew.chatgpt.site/#contact';
+  window.location.href = 'mailto:' + encodeURIComponent(address).replace('%40', '@')
+    + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+/* Carry the chosen customer pathway into the quote form. */
+for (const link of document.querySelectorAll('[data-property]')) {
+  link.addEventListener('click', () => {
+    document.querySelector('#quote-form select[name="property"]').value = link.dataset.property;
+  });
+}
+</script>
+</body>
+</html>
